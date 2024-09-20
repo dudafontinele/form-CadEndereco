@@ -25,5 +25,5 @@ const preencherFormulario = (endereco) => {
     document.getElementById ('bairro').value = endereco.bairro;
     document.getElementById ('localidade').value = endereco.localidade;
     document.getElementById ('uf').value = endereco.uf;
-
+    
 }
