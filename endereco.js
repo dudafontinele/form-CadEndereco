@@ -17,4 +17,13 @@ const limparFormulario = () => {
 
 // Verifica se os digitos são apenas números 
 const eNumero = (numero) => /^[0-9]+$/.test(numero);
-const 
+const cepValido = (cep) => cep.length == 8 && eNumero (cep);
+
+
+const preencherFormulario = (endereco) => {
+    document.getElementById ('logradouro').value = endereco.logradouro;
+    document.getElementById ('bairro').value = endereco.bairro;
+    document.getElementById ('localidade').value = endereco.localidade;
+    document.getElementById ('uf').value = endereco.uf;
+
+}
