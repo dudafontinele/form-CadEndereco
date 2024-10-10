@@ -9,7 +9,6 @@ const limparFormulario = () => {
     document.getElementById('localidade').value = '';
     document.getElementById('uf').value = '';
     document.getElementById('complemento').value = '';
-    document.getElementById('CEP').value = '';
     document.getElementById('N.°').value = '';   
 }
 
@@ -27,3 +26,25 @@ const preencherFormulario = (endereco) => {
     document.getElementById ('uf').value = endereco.uf;
     
 }
+
+// Função para consumo de API ViaCEP
+const pesquisarCep = async() => {   //principal função que será executada quando for preencher o formúlario
+    limparFormulario();   //função para deixar o formúlario em branco para ser preenchido
+    const url = `http://viacep.com.br/ws/${cep.value}/json/`;
+ 
+    if(cepValido(cep.value)){
+        const dados = await fetch(url);  //fetch requisição do viacep e await garante que o feitch responda corretamente no formúlario
+        const addres = await dados.json(); //garante que o formato seja json
+ 
+        if(addres.hasOwnProperty('erro')){ //verifica se tem erro no CEP
+            alert('CEP não encontrado ')
+        }else{
+            preencherFormulario(addres);
+        }
+    }else{
+        alert('CEP Incorreto');
+    }
+}
+ 
+// chama escutador para disparar ação de preenchimento
+document.getElementById('cep').addEventListener('focusout', pesquisarCep); //adiciona escutador de eventos
