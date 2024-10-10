@@ -56,3 +56,5 @@
 [Leonardo Rocha](https://github.com/LeonardoRochaMarista/LeonardoRochaMarista)
 
 [Maria Fontinele](https://github.com/dudafontinele)
+
+[Camila Casagrande](https://github.com/camilacasagrande)
